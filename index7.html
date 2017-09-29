@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.js" ></script>
+	</head>
+	<body>
+		<input type="text" name="app" id="app" value="" />
+		<button id="but">点击</button>
+	</body>
+	<script>
+	 $("#but").click(function(){	
+		var inp = $("#app");
+		var value= $("#app").val();
+		var reg = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
+		if(!reg.test(value)){
+			alert("1")
+		}
+	})	
+	</script>
+</html>

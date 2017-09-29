@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>动态组件</title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			<button @click="doing('tab022')"></button>
+			<div id="">
+				<component :is="currentView" keep-alive></component>
+			</div>
+			
+		</div>
+		<template id="add1">
+			<p>111</p>
+		</template>
+		<template id="add2">
+			<p>222</p>
+		</template>
+		<template id="add3">
+			<p>333</p>
+		</template>
+
+	</body>
+	<script>
+		var tab01 = Vue.extend({
+    			template: "#add1",
+		});
+		//扩展组件tab02
+		var tab02 = Vue.extend({
+		    template: "#add2",
+		});
+		//扩展组件tab03
+		var tab03 = Vue.extend({
+		    template: "#add3",
+		});
+		//新建vue实例
+		var dr01 = new Vue({
+		    el: "#app",
+		    data: {
+
+		        currentView: 'tab01', //默认选中的导航栏
+		    },
+		    //局部注册组件
+		    components: {
+		        tab01: tab01,
+		        tab022: tab02,
+		        tab03: tab03,
+		    },
+		    methods: {
+		        //绑定tab的切换事件
+		        doing: function(tabText) {
+		            this.currentView = tabText;
+		        }
+		    }
+		});
+		
+		
+	</script>
+</html>

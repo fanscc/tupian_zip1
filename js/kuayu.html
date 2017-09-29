@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="jquery.js" ></script>
+	</head>
+	<body>
+		<div onclick="abc(2,3)">22</div>
+	</body>
+	<script>
+		var arr = [
+			{id:'1',text:'我你',ChildTree:[
+				{id:'11',text:'我电话',ChildTree:[
+					{id:'111',text:'多少度',ChildTree:null }
+				] }
+			
+			]},
+			{id:'2',text:'我你',ChildTree:[
+				{id:'22',text:'我电话',ChildTree:[
+					{id:'222',text:'多少度',ChildTree:null }
+				] }		
+			]}
+		]
+		arr.map(function(item,index){
+			item.ChildTree.map(function(ite,inde){
+				ite.ChildTree.map(function(it,ind){	
+					console.log(11111)
+					if(it.id==="111"){
+						console.log(ite.id)
+					}
+						
+				})
+			})
+		})
+		
+		
+	</script>
+</html>

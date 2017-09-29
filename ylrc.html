@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.js" ></script>
+	</head>
+	<body>
+	</body>
+	<script>	
+		var str ="1,2,3 4,5,6 7,8,9"
+		var strT = '我,你,仿 佛,绝,地 反,击,大'		
+		var arr = str.split(" ");
+		var arrstr = strT.split(" ")
+		var sarr1 = [];	
+		var sarr2 = [];
+		var sarr3 = [];	
+		var sarr4 = [];	
+		var sarr5 = [];
+		arr.map(function(item,index){
+			var sarr1 = [];
+			item.split(',').map(function(ite,ind){
+				sarr1.push(ite)
+			})
+			sarr3.push(sarr1)
+		})
+		arrstr.map(function(item,index){
+			var sarr2 = [];
+			item.split(',').map(function(ite,ind){
+				sarr2.push({text:ite,id:sarr3[index][ind]})
+			})
+			sarr4.push(sarr2)
+		})
+		sarr4.map(function(item,index){
+			sarr5.push({id:item[item.length-1].id,text:item[item.length-1].text,path:sarr4[index]})
+		})
+		var strsarr5 = JSON.stringify(sarr5)
+		console.log(strsarr5.substring(1,strsarr5.length-2))
+	</script>
+	
+</html>

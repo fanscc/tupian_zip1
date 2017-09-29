@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.js" ></script>
+		<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+		<p>{{aa}}</p>	
+		<button @click="dosomthing">点击</button>
+		</div>
+		<div id="cc">获取</div>
+		<a href="sms:18401505450">发送短信测试</a>
+	</body>
+	<script>
+		
+		var Vm = new Vue({
+			el:"#app",
+			data:{
+				aa:1
+			},
+			methods:{
+				dosomthing:function(){
+					this.aa++
+					console.log(this)
+					$("#cc").text(this.aa)
+				}
+			}
+		})
+		$("#cc").click(function(){
+			//console.log(Vm.aa)
+			console.log(Vm)
+		})
+	</script>
+</html>

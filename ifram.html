@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	    <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<iframe id="iframid" width="360px" height="486px" scrolling="no" frameborder="0" src="http://h5.eqxiu.com/s//S4RcV1w1?exemplarReview=true"></iframe>
+		<button id="but">点击切换</button>
+	 	<div id="contId">大花洒接口和大家撒好看还是符合</div>
+	</body>
+	
+	<script>
+		var but = document.getElementById("but")
+		but.onclick=function(){
+			document.getElementById("iframid").src="http://h5.eqxiu.com/s//S4RcV1w1?exemplarReview=true";
+			$("#contId").load(location.href+""); 
+		}
+	</script>
+</html>

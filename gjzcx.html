@@ -1,0 +1,46 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+<meta charset="utf-8"/>  
+<title>异步加载</title>  
+<script type="text/javascript">  
+function initialize() {  
+  var mp = new BMap.Map('map');  
+  mp.centerAndZoom(new BMap.Point(121.491, 31.233), 15);    
+  mp.addControl(new BMap.MapTypeControl());    
+	function addMarker(point, index){  // 创建图标对象   
+	var myIcon = new BMap.Icon("./img/maimailog.png", new BMap.Size(50, 50), {    
+    anchor: new BMap.Size(10, 25),    
+   imageOffset: new BMap.Size(0, 0)      
+ });      
+ var marker = new BMap.Marker(point, {icon: myIcon});    
+ mp.addOverlay(marker);    
+  marker.addEventListener("click", function(){    
+ alert("您点击了标注");    
+});
+}       
+var bounds = mp.getBounds();    
+var lngSpan = bounds.maxX - bounds.minX;    
+var latSpan = bounds.maxY - bounds.minY;    
+for (var i = 0; i < 10; i ++) {    
+ var point = new BMap.Point(121.491,    
+                            31.233);    
+    addMarker(point, 2);    
+}
+ 
+}  
+   
+function loadScript() {  
+  var script = document.createElement("script");  
+  script.src = "http://api.map.baidu.com/api?v=2.0&ak=aEqbp6FKpETwT7Y8vDYDks8I5SoWxihk&callback=initialize";//此为v2.0版本的引用方式  
+  // http://api.map.baidu.com/api?v=1.4&ak=您的密钥&callback=initialize"; //此为v1.4版本及以前版本的引用方式  
+  document.body.appendChild(script);  
+}  
+   
+window.onload = loadScript;  
+</script>  
+</head>  
+<body>  
+  <div id="map" style="width:500px;height:320px"></div>  
+</body>  
+</html>

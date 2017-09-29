@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="jquery.js" ></script>
+		<script src="http://rapapi.org/rap.plugin.js?projectId=21356"></script>
+	    
+	</head>
+	<body>
+		<button id='GetData'>点击获取数据</button>
+	</body>
+	<script>
+//		$("#GetData").click(function(){
+//			FormData()
+//		})
+		
+//		function CodeData(){
+//			var dtd = $.Deferred()
+//			$.ajax({
+//				type:"post",
+//				url:"/Channel/ResumeSearch/GetRobotChannelAuthCode",
+//				async:true,
+//				success:function(res){
+//					dtd.resolve(res)
+//				}
+//			});
+//			return dtd.promise()
+//		}
+//		function FormData(){
+//			$.when(CodeData()).done(function(res){
+//				var str = res
+//				$.ajax({
+//					type:"post",
+//					url:"/Channel/ResumeSearch/GetRobotData",
+//					async:true,
+//					success:function(res){
+//						var resp = $.extend(str,res);
+//						console.log(resp)
+//					}
+//				});
+//			}).fail(function(){
+//              throw('err')
+//			})
+//		}
+      
+   		$("#GetData").click(function(){
+   			var dtd = $.Deferred();  
+			wait(dtd);
+			dtd.promise(wait); //这种写法存在一个问题；dtd变成全局了。外面也可以改吧状态
+			  wait.done(function(res){
+		       	   var str = res;
+		       	   $.ajax({
+							type:"post",
+							url:"/Channel/ResumeSearch/GetRobotData",
+							async:true,
+							success:function(res){
+								var resp = $.extend(str,res);
+								console.log(resp)
+							}
+						});
+		       }).fail(function(){
+		       	 throw('err')
+		       }).always(function(){
+		       	alert('hello wrold')
+		       })
+		   })
+          
+       var wait = function(dtd){
+	       	$.ajax({
+					type:"post",
+					url:"/Channel/ResumeSearch/GetRobotChannelAuthCode",
+					async:true,
+					success:function(res){
+						dtd.resolve(res)
+					}
+				});
+       }
+     
+       
+       
+	</script>
+	
+</html>

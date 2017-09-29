@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.js" ></script>
+	</head>
+	<style>
+		font{
+			color:red;
+			}
+	</style>
+	<body>
+		<div id="divcont" style="width:200px;height:40px;border:1px solid #eee"></div>
+		<input type="text" name="" id="inp" value="" />
+		<p id="pcont" style="display: none;">123</p>
+		<button id="but">提交</button>
+	</body>
+	<script>
+		var divcont = $("#divcont");
+		var pcont = $("#pcont");
+		var inp = $("#inp");
+		var but = $("#but");
+		inp.keyup(function(){
+			var val = $(this).val();
+			if(val.indexOf("@")!==-1){
+				pcont.show();
+			}
+		})
+		pcont.click(function(){
+			var text = $(this).text();
+			var val = inp.val();
+			var texts = val+text
+			inp.val(texts+":")
+			
+		})
+		but.click(function(){
+			var val = inp.val();
+			var index = val.indexOf(":")
+			var texts = val.substring(0,index+1)
+			var textss = val.substring(index+1)
+			divcont.html("<font>"+texts+"</font>"+textss)
+			inp.val("");
+		})
+	</script>
+</html>

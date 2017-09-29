@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.js" ></script>
+	</head>
+	<body>
+		<textarea type="text" name="texts" id="texts" maxlength="8"  /></textarea>
+		你还可以添加<span id="sp"></span>邮箱
+	</body>
+	<script>
+		var inp = $("#texts");
+		var sp = $("#sp")
+		var text1 = inp.val();
+		var len1 =6-(text1.split(";")[0]==''?0:text1.split(";").length);
+		sp.text(len1)
+		inp.keyup(function(){
+			var text = inp.val();
+			var len =6-(text.split(";")[0]==''?0:text.split(";")[text.split(";").length-1]==""?text.split(";").length-1:text.split(";").length);
+			sp.text(len)
+		})
+		
+		
+	</script>
+</html>

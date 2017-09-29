@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	     <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<input type="text" name="" id="inptext" value="" />
+		<input type="text" name="" id="inptext1" value="" />
+		<button id="but">复制</button>
+		<a href="#index1.html">qqqq</a>
+	</body>
+	<script>
+		$(function(){
+			$("#but").click(function(){
+				var inptext = $("#inptext");
+				inptext.select();
+				document.execCommand("Copy");
+				
+			})
+		})
+		
+		
+	</script>
+</html>

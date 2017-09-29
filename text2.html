@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		Function.prototype.addMethod=function(name,fn){
+			this.prototype[name]=fn;
+
+		}
+		var cky = function(){};
+		
+		
+		cky.addMethod('checka',function(){
+			console.log(1)
+			return this
+		})
+		cky.addMethod('checkb',function(){
+			console.log(2)
+			return this
+		})
+		
+		var Cky1 = new cky();
+		Cky1.checka().checkb();
+		
+	</script>
+</html>

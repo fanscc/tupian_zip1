@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="jquery.js" ></script>
+		<script src="http://rapapi.org/rap.plugin.js?projectId=21356"></script>
+	</head>
+	<style type="text/css">
+      div{
+      	position: fixed;
+      	display: flex;
+      	justify-content: center;
+      	align-items: center;
+      }
+	</style>
+	<body>
+		 <label for="eight">8</label>
+      	 <input type="file" value="8" id="eight" name="number[]" style="display: none;">
+      	<div id="app" style='width:100px;height:100px;'>
+      		2
+      	</div>
+	</body>
+	<script>
+		var fn = new Promise(function (resolve,reject){
+			 	$.ajax({
+					type:"post",
+					url:"/Channel/ResumeSearch/GetRobotChannelAuthCode",
+					async:true,
+					success:function(res){
+						resolve(res)
+					}
+				});
+		})
+//		fn.then(function(res){
+//			var str = res;
+//			 $.ajax({
+//					type:"post",
+//					url:"/Channel/ResumeSearch/GetRobotData",
+//					async:true,
+//					success:function(res){
+//						var resp = $.extend(str,res);
+//						console.log(resp)
+//					}
+//						});
+//		}).catch(function(res){
+//			throw('err')
+//		})
+		var fn1 = new Promise(function (resolve,reject){
+			 	 $.ajax({
+					type:"post",
+					url:"/Channel/ResumeSearch/GetRobotData",
+					async:true,
+					success:function(res){
+						resolve(res)
+
+					}
+						});
+		})
+      var arr = [];
+      arr.push(fn);
+      arr.push(fn1);
+      Promise.all(arr).then(function(res){
+      	console.log(res)
+      }).catch(function(err){
+      	throw new Error(err)
+      })
+
+		
+	</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="jquery.js" ></script>
+	</head>
+	<body>
+	</body>
+	<script>
+		var arr = [
+			{"path":[{"id":"1","text":"我的"},{"id":"2","text":"我的2"},{"id":"3","text":"我的3"}]},
+			{"path":[{"id":"1","text":"我的11"},{"id":"22","text":"我的22"},{"id":"33","text":"我的33"}]},
+			{"path":[{"id":"111","text":"我的111"},{"id":"222","text":"我的222"},{"id":"333","text":"我的333"}]},
+		]
+		var arr1 = [];
+		var arr2 = [];
+		var str = ''
+		arr.map(function(item,index){
+			var arr3 = [];
+			var arr4 = [];
+			item.path.map(function(ite,ind){
+				arr3.push(ite.id);
+				arr4.push(ite.text);
+			})
+			arr1.push(arr3);
+			arr2.push(arr4);
+		})
+		arr2.map(function(item,index){
+			str += item.join('')+','
+		})
+		
+		
+	</script>
+</html>

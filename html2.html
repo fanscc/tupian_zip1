@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.js" ></script>
+	</head>
+	<body>
+		
+	</body>
+	<script>
+		var arr2 = [];
+		var arr1 = [[1,2,3],[11,22,33]]
+	     arr1.map(function(item,index){
+	     	var path = [];
+	     	item.map(function(ite,inde){
+	     		path.push(ite)
+	     	})
+	     	arr2.push({id:path[2],path:path})
+	     })
+	     console.log(arr2)
+		
+	</script>
+</html>
